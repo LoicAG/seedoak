@@ -11,6 +11,10 @@ class SeedsController < ApplicationController
     @seed = Seed.new
   end
 
+  def edit
+    @seed = Seed.find(params[:id])
+  end
+
   def create
     @seed = Seed.new(seed_params)
 
@@ -18,6 +22,16 @@ class SeedsController < ApplicationController
       redirect_to @seed
     else
       render 'new'
+    end
+  end
+
+  def update
+    @seed = Seed.find(params[:id])
+
+    if @seed.update(seed_params)
+      redirect_to @seed
+    else
+      render 'edit'
     end
   end
 
