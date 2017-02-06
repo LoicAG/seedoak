@@ -1,35 +1,5 @@
 <h1>New seed</h1>
 
-<%= form_for :seed, url: seeds_path do |f| %>
-
-  <% if @seed.errors.any? %>
-    <div id='error_explanation'>
-      <h2>
-        <%= pluralize(@seed.errors.count, 'error') %> prevented this seed
-        from being saved:
-      </h2>
-      <ul>
-        <% @seed.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back to list of seeds', seeds_path %>
