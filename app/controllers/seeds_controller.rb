@@ -35,6 +35,13 @@ class SeedsController < ApplicationController
     end
   end
 
+  def destroy
+    @seed = Seed.find(params[:id])
+    @seed.destroy
+
+    redirect_to seeds_path
+  end
+
   private
     def seed_params
       params.require(:seed).permit(:name, :description)
