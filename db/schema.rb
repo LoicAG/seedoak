@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206144142) do
+ActiveRecord::Schema.define(version: 20170207093620) do
+
+  create_table "picks", force: :cascade do |t|
+    t.decimal  "price"
+    t.integer  "seed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seed_id"], name: "index_picks_on_seed_id"
+  end
 
   create_table "seeds", force: :cascade do |t|
     t.string   "name"
