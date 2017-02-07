@@ -1,4 +1,6 @@
 class Seed < ApplicationRecord
+  has_many :picks
+
   validates :name, presence: true,
                    length: { minimum: 5 }
 
