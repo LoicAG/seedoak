@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170207093620) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "picks", force: :cascade do |t|
     t.decimal  "price"
     t.integer  "seed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["seed_id"], name: "index_picks_on_seed_id"
+    t.index ["seed_id"], name: "index_picks_on_seed_id", using: :btree
   end
 
   create_table "seeds", force: :cascade do |t|
@@ -27,4 +30,5 @@ ActiveRecord::Schema.define(version: 20170207093620) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "picks", "seeds"
 end
