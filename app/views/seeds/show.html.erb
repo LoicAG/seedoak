@@ -8,5 +8,14 @@
   <%= @seed.description %>
 </p>
 
+<p>
+  <strong>List of picks:</strong>
+  <ul>
+    <% @seed.picks.each do |pick| %>
+      <li><%= pick.price %> €</li>
+    <% end %>
+  </ul>
+
+<%= link_to 'Pick this seed', new_seed_pick_path(@seed) %><br>
 <%= link_to 'Edit this seed', edit_seed_path(@seed) %><br>
 <%= link_to 'Back to the list of seeds', seeds_path %>

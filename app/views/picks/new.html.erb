@@ -1,0 +1,20 @@
+<p>
+  <strong>Name of the product:</strong>
+  <%= @seed.name %>
+</p>
+
+<p>
+  <strong>Description of the product:</strong>
+  <%= @seed.description %>
+</p>
+
+<h2>Your price for this seed:</h2>
+<%= form_for([@seed, @seed.picks.build]) do |f| %>
+  <p>
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
