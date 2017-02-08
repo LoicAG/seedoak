@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-  get 'user_sessions/new'
-
-  get 'user_sessions/create'
-
-  get 'user_sessions/destroy'
-
   resources :users
+  resources :user_sessions
+
+  get 'login' => 'user_sessions#new', :as => :login
+  get 'logout' =>  'user_sessions#destroy', :as => :logout
 
   resources :seeds do
     resources :picks
   end
 
-  root 'welcome#index'
+  root 'users#index'
 end
