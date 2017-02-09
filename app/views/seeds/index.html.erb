@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Description</th>
     <th>Number of picks</th>
+    <th>Seeder</th>
   </tr>
 
   <% @seeds.each do |seed| %>
@@ -12,6 +13,7 @@
       <td><%= seed.name %></td>
       <td><%= seed.description %></td>
       <td><%= seed.picks.length %></td>
+      <td><%= seed.user.first_name %> <%= seed.user.last_name %></td>
       <td><%= link_to 'Show', seed_path(seed) %></td>
       <td><%= link_to 'Edit', edit_seed_path(seed) %></td>
       <td><%= link_to 'Delete', seed_path(seed),
