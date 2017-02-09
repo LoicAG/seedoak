@@ -1,4 +1,6 @@
 class SeedsController < ApplicationController
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @seeds = Seed.all
   end
@@ -16,7 +18,9 @@ class SeedsController < ApplicationController
   end
 
   def create
+    current_user_id = current_user.id
     @seed = Seed.new(seed_params)
+    @seed.user_id = current_user_id
 
     if @seed.save
       redirect_to @seed

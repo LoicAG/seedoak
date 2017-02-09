@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <strong>Seeder:</strong>
+  <%= @seed.user.first_name %> <%= @seed.user.last_name %>
+</p>
+
+<p>
   <strong>List of picks:</strong>
   <ul>
     <% @seed.picks.each do |pick| %>
