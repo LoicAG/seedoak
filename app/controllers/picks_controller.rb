@@ -9,8 +9,10 @@ class PicksController < ApplicationController
     redirect_to seed_path(@seed)
   end
 
+
   private
-    def pick_params
-      params.require(:pick).permit(:price)
-    end
+
+  def pick_params
+    params.require(:pick).permit(:price)
+  end
 end

@@ -46,8 +46,10 @@ class SeedsController < ApplicationController
     redirect_to seeds_path
   end
 
+
   private
-    def seed_params
-      params.require(:seed).permit(:name, :description)
-    end
+
+  def seed_params
+    params.require(:seed).permit(:name, :description)
+  end
 end
