@@ -17,7 +17,7 @@
   <strong>List of picks:</strong>
   <ul>
     <% @seed.picks.each do |pick| %>
-      <li><%= pick.price %> €</li>
+      <li><%= pick.price %> € by <%= pick.user.full_name %></li>
     <% end %>
   </ul>
 

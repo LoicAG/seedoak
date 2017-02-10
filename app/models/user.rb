@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :seeds
+  has_many :picks
 
   validates :email,
     uniqueness: true
@@ -23,4 +24,8 @@ class User < ApplicationRecord
 
   validates :last_name,
     presence: true
+
+  def full_name
+    return first_name + ' ' + last_name
+  end
 end
